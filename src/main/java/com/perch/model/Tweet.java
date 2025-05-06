@@ -32,7 +32,7 @@ public class Tweet {
     @OneToMany(mappedBy = "tweet", cascade = CascadeType.ALL)
     private List<Like> likes = new ArrayList<>();
 
-    @OneToMany(mappedBy = "tweet", cascade = CascadeType.ALL)
+    @OneToMany
     private List<Tweet> replyTweets = new ArrayList<>();
 
     @ManyToMany

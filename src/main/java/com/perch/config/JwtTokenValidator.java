@@ -28,6 +28,8 @@ public class JwtTokenValidator extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
+        
+
         // Extract the JWT token from the request header
         String token = request.getHeader(JwtConstant.JWT_HEADER);
         if (token != null && token.startsWith("Bearer ")) {
@@ -58,4 +60,5 @@ public class JwtTokenValidator extends OncePerRequestFilter {
         }
         filterChain.doFilter(request, response);
     }
+    
 }

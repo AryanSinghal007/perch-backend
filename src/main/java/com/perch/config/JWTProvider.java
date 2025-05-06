@@ -5,11 +5,13 @@ import java.sql.Date;
 import javax.crypto.SecretKey;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 
+@Service
 public class JWTProvider {
     SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
 
@@ -34,7 +36,4 @@ public class JWTProvider {
         String email = String.valueOf(claims.get("email"));
         return email;
     }
-
-
-
 }
