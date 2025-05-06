@@ -1,4 +1,4 @@
-package com.config;
+package com.perch.config;
 
 public class JwtConstant {
 

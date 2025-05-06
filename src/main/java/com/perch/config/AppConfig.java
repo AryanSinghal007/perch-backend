@@ -1,4 +1,4 @@
-package com.config;
+package com.perch.config;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -27,8 +27,9 @@ public class AppConfig {
 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         .and()
-        .authorizeRequests(Authorize -> Authorize.requestMatchers("/api/**").authenticated()
-                .anyRequest().permitAll()).addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
+        .authorizeHttpRequests(Authorize -> Authorize.requestMatchers("/api/**").authenticated()
+                .anyRequest().permitAll()
+                ).addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
         .csrf().disable()
         .cors().configurationSource(corsConfigurationSource())
         .and()
